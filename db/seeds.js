@@ -1,10 +1,18 @@
 const User = require('../models/User')
 const Post = require('../models/Post')
-// const Booking = require('../models/Booking')
+const Booking = require('../models/Booking')
 
 const mongoose = require('./connections')
 
+const book1 = new Booking({
+    userName: "Daniel",
+    comment: "Looking forward to it"
+})
 
+const book2 = new Booking({
+    userName: "Joe",
+    comment: "Not looking forward to it"
+})
 
 const post1 = new Post({
     dollarPrice: 10,
@@ -12,7 +20,7 @@ const post1 = new Post({
     booked: "Yes",
     pickupLocation: '799 Virginia Circle NE',
     pickupDate: "January 26, 2019",
-    bookings: []
+    bookings: [book1, book2]
 })
 
 const post2 = new Post({
@@ -21,7 +29,7 @@ const post2 = new Post({
     booked: "Yes",
     pickupLocation: '750 Virginia Circle NE',
     pickupDate: "January 28, 2019",
-    bookings: []
+    bookings: [book1, book2]
 })
 
 const user = new User({
@@ -36,7 +44,11 @@ const user = new User({
 
 User.remove({})
     .then(() => Post.remove({}))
+    .then(() => Booking.remove({}))
     .then(() => Post.insertMany([post1, post2]))
+    .then(() => Booking.insertMany([book1, book2]))
     .then(() => user.save())
+    .then(() => post1.save())
+    .then(() => post2.save())
     .then(() => console.log('Successful Save'))
     .then(() => mongoose.connection.close())
