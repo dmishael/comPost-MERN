@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "proxy": "http://localhost:3001",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "concurrently \"nodemon server.js\" \"cd ./client  && npm start \" ",
+    "postinstall": "cd client && npm install && npm run build"
   },
   "author": "Daniel Mishael",
   "license": "ISC",
@@ -16,5 +19,8 @@
     "express": "^4.16.4",
     "mongoose": "^5.4.6",
     "nodemon": "^1.18.9"
+  },
+  "engines": {
+    "node": "11.2.0"
   }
 }
