@@ -1,4 +1,4 @@
-const mongoose = require('../db/connection')
+const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
 const User = new Schema({
@@ -10,7 +10,7 @@ const User = new Schema({
     posts: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'post'
+            ref: 'Post'
         }
     ]
 })

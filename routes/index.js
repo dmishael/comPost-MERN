@@ -1,8 +1,7 @@
 const express = require('express')
 const router = express.Router()
-// const creatureController = require('../controllers/creatureController')
+const userController = require('../controllers/user')
 
-// router.get('/', creatureController.index)
-// router.get('/creatures/:id', creatureController.show)
+router.get('/api/users', userController.index)
 
 module.exports = router
