@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
+import { Link } from 'react-router-dom';
 
 class Users extends Component {
 
@@ -13,10 +13,10 @@ class Users extends Component {
     }
 
     getAllUsers = () => {
-        axios.get('api/users').then((res) => {
-
+        axios.get(`api/users`).then((res) => {
+            console.log(res)    
             this.setState({ users: res.data })
-            console.log(this.state.users)
+            
         })
     }
 
@@ -33,6 +33,7 @@ class Users extends Component {
                         <li>Gallons Composted: {user.amountComposted}</li>
                         <li>Routes Hauled: {user.routesHauled}</li>
                         <li>Available Credit: {user.availableCredit}</li>
+                    <Link to = {'/users/${user._id}'}>Users</Link>
                     </div>
 
                 ))}
