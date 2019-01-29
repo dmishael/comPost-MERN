@@ -23,8 +23,9 @@ class AddPostForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const input = this.state.post
-        axios.post('/api/posts', input).then((res)=> {
-            console.log("hi")
+        const userId = this.props.match.params.id
+        axios.post(`/api/users/${userId}/posts`, input).then((res)=> {
+            this.props.history.goBack()
         })
 
     }

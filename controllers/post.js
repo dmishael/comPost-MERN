@@ -11,8 +11,10 @@ const postController = {
     },
     create: (req, res) => {
         var userId = req.params.userId
+        console.log('userId', userId)
         User.findById(userId)
             .then((user) => {
+                console.log('user', user)
                 Post.create(req.body)
                     .then((newPost) => {
                         user.posts.push(newPost)
