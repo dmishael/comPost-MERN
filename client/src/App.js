@@ -5,6 +5,7 @@ import Users from './components/Users';
 import Profile from './components/Profile';
 import { Link } from 'react-router-dom';
 import UserForm from './components/AddUserForm';
+import EditUserForm from './components/EditUserForm';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/users" component={Users}/>
             <Route exact path="/userForm" component={UserForm}/>
+            <Route exact path="/users/:id/edit" component={EditUserForm}/>
             <Route exact path="/users/:id" component={Profile}/>
           </Switch>
         </div>
