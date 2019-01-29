@@ -40,7 +40,7 @@ class Users extends Component {
                 {this.state.users.map((user, i) => (
                     <div key={i}>
                             
-                        <li>Name: {user.name}</li>
+                        <li>Name: <Link to = {`/users/${user._id}`}>{user.name}</Link></li>
                         <li>Adress: {user.address}</li>
                         <li>Gallons Composted: {user.amountComposted}</li>
                         <li>Routes Hauled: {user.routesHauled}</li>

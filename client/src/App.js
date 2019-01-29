@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Users from './components/Users';
 import Profile from './components/Profile';
+import Posts from './components/Profile';
 import { Link } from 'react-router-dom';
 import UserForm from './components/AddUserForm';
 import EditUserForm from './components/EditUserForm';
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path="/userForm" component={UserForm}/>
             <Route exact path="/users/:id/edit" component={EditUserForm}/>
             <Route exact path="/users/:id" component={Profile}/>
+            <Route exact path="/posts" component={Posts}/>
           </Switch>
         </div>
       </Router>
