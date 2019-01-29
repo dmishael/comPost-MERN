@@ -25,7 +25,7 @@ class App extends Component {
             <Route exact path="/users/:id/edit" component={EditUserForm}/>
             <Route exact path="/users/:id" component={Profile}/>
             <Route exact path="/Posts/:id" component={Posts}/>
-            <Route exact path="/Posts/Post/:id" component={PostForm}/>
+            <Route exact path="/Posts/:id/Post" component={PostForm}/>
           </Switch>
         </div>
       </Router>

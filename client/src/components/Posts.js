@@ -1,5 +1,6 @@
-import React, { Component, Link } from 'react';
+import React, { Component} from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom';
 
 class Posts extends Component {
     
@@ -30,9 +31,9 @@ class Posts extends Component {
                     <ul>Dollar Price: {posts.dollarPrice}</ul>
                     <ul>Favor Points: {posts.favorPoints}</ul>
                     <ul>Booked: {posts.booked}</ul>
-                    
-                    <Link to = {`/Posts/Post/${this.props.match.params.id}`}>Post</Link>
-                
+                    <div>
+                    <Link to = {`/Posts/${this.props.match.params.id}/Post`}>Post</Link>
+                    </div>
                     </div>
                     
                     
