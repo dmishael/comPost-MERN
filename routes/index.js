@@ -13,7 +13,7 @@ router.delete('/api/users/:userId', userController.delete)
 //done with user routes
 
 router.get('/api/posts/:userId', postController.index)
-router.post('/api/users/:userId/posts', postController.create)
+router.post('/api/posts', postController.create)
 router.get('/api/posts/:postId', postController.show)
 router.patch('/api/posts/:postId', postController.update)
 router.delete('/api/posts/:postId', postController.delete)

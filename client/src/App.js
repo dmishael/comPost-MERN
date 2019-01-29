@@ -7,7 +7,8 @@ import Profile from './components/Profile';
 import Posts from './components/Posts';
 import UserForm from './components/AddUserForm';
 import EditUserForm from './components/EditUserForm';
-import PostForm from './components/PostForm';
+import AddBookingForm from './components/AddBookingForm';
+import AddPost from './components/AddPost';
 
 class App extends Component {
   render() {
@@ -25,7 +26,9 @@ class App extends Component {
             <Route exact path="/users/:id/edit" component={EditUserForm}/>
             <Route exact path="/users/:id" component={Profile}/>
             <Route exact path="/Posts/:id" component={Posts}/>
-            <Route exact path="/Posts/:id/Post" component={PostForm}/>
+            <Route exact path="/Post/:id" component={AddPost}/>
+
+            <Route exact path="/Posts/:id/Book" component={AddBookingForm}/>
           </Switch>
         </div>
       </Router>
