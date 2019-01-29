@@ -18,11 +18,12 @@ class App extends Component {
                 <Link to="/userForm">Sign Up</Link>
         </div>
           <Switch>
+          <Route exact path="/posts/:id" component={Posts}/>
             <Route exact path="/users" component={Users}/>
             <Route exact path="/userForm" component={UserForm}/>
             <Route exact path="/users/:id/edit" component={EditUserForm}/>
             <Route exact path="/users/:id" component={Profile}/>
-            <Route exact path="/posts" component={Posts}/>
+            
           </Switch>
         </div>
       </Router>

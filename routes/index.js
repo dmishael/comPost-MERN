@@ -10,8 +10,9 @@ router.get('/api/users/:userId', userController.show)
 router.patch('/api/users/:userId', userController.update)
 router.delete('/api/users/:userId', userController.delete)
 
+//done with user routes
 
-router.get('/api/posts', postController.index)
+router.get('/api/posts/:userId', postController.index)
 router.post('/api/users/:userId/posts', postController.create)
 router.get('/api/posts/:postId', postController.show)
 router.patch('/api/posts/:postId', postController.update)

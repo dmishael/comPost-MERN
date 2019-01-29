@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
 class Posts extends Component {
+    componentDidMount() {
+        console.log("hey")
+    }
     render() {
         return (
             <div>
-                Posts
+                <h1>Posts</h1>
             </div>
         );
     }
