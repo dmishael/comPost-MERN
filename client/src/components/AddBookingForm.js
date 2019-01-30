@@ -16,14 +16,14 @@ class AddBookingForm extends Component {
         this.setState({ booking: newBooking})
     }
     
-    handleSubmit = (event) => {
-        event.preventDefault()
-        const input = this.state.post
-        axios.post('/api/users', input).then((res)=> {
-            this.props.history.goBack()
-        })
+    // handleSubmit = (event) => {
+    //     event.preventDefault()
+    //     const booking = this.state.post
+    //     axios.post(`/api/posts/${}/bookings`, input).then((res)=> {
+    //         this.props.history.goBack()
+    //     })
 
-    }
+    // }
 
 
     render() {
