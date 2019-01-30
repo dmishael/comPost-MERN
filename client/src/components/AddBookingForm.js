@@ -4,20 +4,16 @@ import axios from 'axios'
 class AddBookingForm extends Component {
 
     state = {
-        post: {
-            pickupDate: '',
-            pickupLocation: '',
-            dollarPrice: '',
-            favorPoints: '',
-            booked: '',
-        
+        booking: {
+            userName: '',
+            comment: ''
         }
     }
 
     handleChange = (event) => {
-        const newPost = {...this.state.post}
-        newPost[event.target.name] = event.target.value
-        this.setState({ post: newPost})
+        const newBooking = {...this.state.post}
+        newBooking[event.target.name] = event.target.value
+        this.setState({ booking: newBooking})
     }
     
     handleSubmit = (event) => {
@@ -37,9 +33,9 @@ class AddBookingForm extends Component {
                     <div>
                         <input 
                         type = "text"
-                        placeholder="Pick Up Date"
-                        name="pickupDate"
-                        value={this.state.post.pickupDate}
+                        placeholder="User Name"
+                        name="userName"
+                        value={this.state.post.userName}
                         onChange={this.handleChange}
                         />
                     </div>

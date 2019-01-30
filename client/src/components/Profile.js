@@ -27,8 +27,11 @@ class Profile extends Component {
             <div>
                 <h1>Profile: {this.state.user.name}</h1>
                 <h1>Address: {this.state.user.address}</h1>
-                {/* <h1>{this.state.user.posts.dollarPrice}</h1> */}
-                    
+                {console.log(this.state.user.posts)}
+                {/* <h1>{this.state.user.posts.reduce((a,b) => {
+                    return( a + b)
+                })}</h1>
+                     */}
                
                 <div>
                 <Link to = {`/Posts/${this.props.match.params.id}`}>Let's Compost</Link>
