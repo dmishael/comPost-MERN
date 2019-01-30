@@ -25,6 +25,8 @@ class AddPostForm extends Component {
         const input = this.state.post
         const userId = this.props.match.params.id
         axios.post(`/api/users/${userId}/posts`, input).then((res)=> {
+            // const price = this.state.post.dollarPrice
+
             this.props.history.goBack()
         })
 

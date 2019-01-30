@@ -16,6 +16,7 @@ class Profile extends Component {
         const id = this.props.match.params.id
         console.log(id)
         axios.get(`/api/users/${id}`).then((res)=>{
+            console.log(res)
             this.setState({user: res.data})
         
         })
@@ -26,7 +27,9 @@ class Profile extends Component {
             <div>
                 <h1>Profile: {this.state.user.name}</h1>
                 <h1>Address: {this.state.user.address}</h1>
-                {/* {console.log(this.props.match.params.id)} */}
+                {/* <h1>{this.state.user.posts.dollarPrice}</h1> */}
+                    
+               
                 <div>
                 <Link to = {`/Posts/${this.props.match.params.id}`}>Let's Compost</Link>
                 </div>
@@ -35,5 +38,10 @@ class Profile extends Component {
         );
     }
 }
-
+// amountComposted: Number,
+// routesHauled: Number,
+// availableCredit: Number,
+// name: String,
+// address: String,
+// posts: [
 export default Profile;
