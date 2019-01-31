@@ -9,11 +9,15 @@ const bookingController = {
             })
     },
     create: (req, res) => {
-        var postId = req.params.postId
+        const postId = req.params.postId
+        console.log("post id",postId)
         Post.findById(postId)
             .then((post) => {
+                console.log("post",post)
                 Booking.create(req.body)
+                
                     .then((newBooking) => {
+                        console.log(newBooking)
                         post.bookings.push(newBooking)
                         post.save()
                         res.send(newBooking)
@@ -30,7 +34,7 @@ const bookingController = {
         })
     },
     update: (req, res) => {
-        var bookingId = req.params.bookingId
+        const bookingId = req.params.bookingId
         Booking.findByIdAndUpdate(bookingId, req.body, { new: true })
             .then((newBooking) => {
                 newBooking.save()

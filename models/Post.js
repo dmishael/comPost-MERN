@@ -10,7 +10,7 @@ const Post = new Schema({
     bookings: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'booking'
+            ref: 'Booking'
         }
     ]
 })

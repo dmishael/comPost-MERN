@@ -9,12 +9,13 @@ class Posts extends Component {
     }
 
     componentDidMount() {
-        this.getAllUsers()
+        this.getAllPosts()
     }
 
-    getAllUsers = () => {
-        axios.get('/api/posts/:userId').then((res) => {
-            console.log(res)
+    getAllPosts = () => {
+        axios.get(`/api/posts/${this.props.match.params.id}`).then((res) => {
+            console.log(this.props.match.params.id)
+            console.log(res.data)
             this.setState({ Posts: res.data })
 
         })
@@ -22,11 +23,19 @@ class Posts extends Component {
 
     deleteIdea = (event, postId) => {
         event.preventDefault()
-            axios.delete(`/api/posts/${postId}`).then((res)=>{
-                this.getAllUsers()
-            })
+        axios.delete(`/api/posts/${postId}`).then((res) => {
+            this.getAllPosts()
+        })
 
     }
+
+    // book = (event, postId) => {
+    //     event.preventDefault()
+    //         axios.post(`/api/posts/${postId}/bookings`).then((res)=>{
+    //             console.log(res)
+    //         })
+
+    // }
 
     render() {
         return (
@@ -37,12 +46,17 @@ class Posts extends Component {
                         <h1> Post: </h1>
                         <ul>Pickup Date: {posts.pickupDate}</ul>
                         <ul>Pickup Location: {posts.pickupLocation}</ul>
-                        <ul>Dollar Price: {posts.dollarPrice}</ul>
+                        <ul>Dollar Price: $ {posts.dollarPrice}</ul>
                         <ul>Favor Points: {posts.favorPoints}</ul>
-                        <ul>Booked: {posts.booked}</ul>
+                        <ul>Booked By: {posts.bookings.map((booking) => {
+                            return <p>{booking.userName}</p>
+
+                        })}</ul>
+
                         <div>
-                            <Link to={`/Posts/${this.props.match.params.id}/Book`}>Book!</Link>
+                            <Link to={`/Posts/${posts._id}/Book`}>Book!</Link>
                             <div><button onClick={(event) => this.deleteIdea(event, posts._id)}>Delete</button></div>
+                            {/* <div><button onClick={(event) => this.book(event, posts._id)}>Book</button></div> */}
                         </div>
                     </div>
 

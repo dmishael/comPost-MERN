@@ -1,5 +1,5 @@
 const User = require('../models/User')
-
+const Post = require('../models/Post')
 
 
 const userController = {
@@ -11,7 +11,7 @@ const userController = {
     },
     create: (req, res) => {
         User.create(req.body)
-            .then((user) => {
+            .then((user) => { 
                 res.send(user)
             })
     },
@@ -21,15 +21,15 @@ const userController = {
         console.log(userId)
         User.findById(userId).populate('posts').then((user) => {
             res.send(user)
-
         })
     },
     update: (req, res) => {
-        var userId = req.params.userId
+        const userId = req.params.userId
+        console.log(req.body)
         User.findByIdAndUpdate(userId, req.body, { new: true })
-            .then((newUser) => {
-                newUser.save()
-                res.send(newUser)
+            .then((updatedUser) => {console.log(updatedUser)
+                updatedUser.save()
+                res.send(updatedUser)
             })
     },
     delete: (req, res) => {

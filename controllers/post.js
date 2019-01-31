@@ -4,14 +4,14 @@ const User = require('../models/User')
 
 const postController = {
     index: (req, res) => {
-        Post.find({})
+        Post.find({}).populate('bookings')
             .then((posts) => {
                 res.send(posts)
             })
     },
     create: (req, res) => {
         var userId = req.params.userId
-        console.log('userId', userId)
+        console.log(userId)
         User.findById(userId)
             .then((user) => {
                 console.log('user', user)
@@ -26,7 +26,7 @@ const postController = {
     show: (req, res) => {
         const postId = req.params.postId
         console.log(postId)
-        Post.findById(postId).then((post) => {
+        Post.findById(postId).populate('bookings').then((post) => {
             res.send(post)
 
         })

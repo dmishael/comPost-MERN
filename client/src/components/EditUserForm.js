@@ -5,13 +5,16 @@ class EditUserForm extends Component {
 
     state = {
         user: {
-            name: '',
-            address: ''
+            amountComposted: NaN,
+            routesHauled: NaN,
+            availableCredit: NaN,
+            name: "",
+            address: "",
         }
     }
 
     handleChange = (event) => {
-        const newUser = {...this.state.user}
+        const newUser = { ...this.state.user }
         newUser[event.target.name] = event.target.value
         this.setState({ user: newUser })
     }
@@ -21,11 +24,12 @@ class EditUserForm extends Component {
         event.preventDefault()
         const edit = this.state.user
         const userId = this.props.match.params.id
+        console.log("user", userId)
         console.log(`api/users/${userId}`)
-        axios.patch(`api/users/${userId}`, edit).then((res) => {
-            this.props.history.goBack()
+        axios.patch(`/api/users/${userId}`, edit).then((res) => {console.log("smile")
+            this.props.history.push(`/users/${userId}`)
             console.log("handled it")
-        
+
         })
     }
 
@@ -34,25 +38,25 @@ class EditUserForm extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <input 
-                        type = "text"
-                        placeholder="Name"
-                        name="name"
-                        value={this.state.user.name}
-                        onChange={this.handleChange}
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            name="name"
+                            value={this.state.user.name}
+                            onChange={this.handleChange}
                         />
                     </div>
                     <div>
-                        <input 
-                        type = "text"
-                        placeholder="Address"
-                        name="address"
-                        value={this.state.user.address}
-                        onChange={this.handleChange}
+                        <input
+                            type="text"
+                            placeholder="Address"
+                            name="address"
+                            value={this.state.user.address}
+                            onChange={this.handleChange}
                         />
                     </div>
-                    <button>Sumbit</button>
-                
+                    <button type="submit">Submit</button>
+
                 </form>
             </div>
         );
