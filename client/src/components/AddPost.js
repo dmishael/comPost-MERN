@@ -6,9 +6,9 @@ class AddPostForm extends Component {
     state = {
         post: {
             pickupDate: '',
-            pickupLocation: '',
-            dollarPrice: '',
-            favorPoints: ''
+            composter: '',
+            gallonsNeeded: '',
+            // favorPoints: ''
         
         }
     }
@@ -29,6 +29,9 @@ class AddPostForm extends Component {
 
             this.props.history.goBack()
         })
+        /*
+        On submit I want to the pass the amt of compost to 
+        */
 
     }
 
@@ -49,22 +52,22 @@ class AddPostForm extends Component {
                     <div>
                         <input 
                         type = "text"
-                        placeholder="Pick Up Location"
-                        name="pickupLocation"
-                        value={this.state.post.pickupLocation}
+                        placeholder="Composter Name"
+                        name="composter"
+                        value={this.state.post.composter}
                         onChange={this.handleChange}
                         />
                     </div>
                     <div>
                         <input 
                         type = "text"
-                        placeholder="Dollar Price"
-                        name="dollarPrice"
-                        value={this.state.post.dollarPrice}
+                        placeholder="Gallons Needed"
+                        name="gallonsNeeded"
+                        value={this.state.post.gallonsNeeded}
                         onChange={this.handleChange}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <input 
                         type = "text"
                         placeholder="Favor Points"
@@ -72,7 +75,7 @@ class AddPostForm extends Component {
                         value={this.state.post.favorPoints}
                         onChange={this.handleChange}
                         />
-                    </div>
+                    </div> */}
                     <button>Submit</button>
                     </form>
             </div>

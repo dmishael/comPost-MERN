@@ -1,5 +1,6 @@
 const Booking = require('../models/Booking')
 const Post = require('../models/Post')
+const User = require('../models/User')
 
 const bookingController = {
     index: (req, res) => {

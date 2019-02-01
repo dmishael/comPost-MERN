@@ -15,10 +15,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-        <div>
+        <nav>
                 <Link to="/users">Users</Link>
                 <Link to="/userForm">Sign Up</Link>
-        </div>
+              
+        </nav>
           <Switch>
             
             <Route exact path="/users" component={Users}/>

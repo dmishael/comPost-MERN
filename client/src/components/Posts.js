@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 class Posts extends Component {
 
     state = {
-        Posts: []
+        Posts: [],
+        Users: []
     }
 
     componentDidMount() {
@@ -29,6 +30,15 @@ class Posts extends Component {
 
     }
 
+    addCompostCredit = (event, postId) => {
+        event.preventDefault()
+        console.log(this.props.match.params.id)
+        axios.delete(`/api/posts/${postId}`).then((res) => {
+            this.getAllPosts()
+        })
+
+    }
+
     // book = (event, postId) => {
     //     event.preventDefault()
     //         axios.post(`/api/posts/${postId}/bookings`).then((res)=>{
@@ -45,11 +55,15 @@ class Posts extends Component {
                     <div key={i}>
                         <h1> Post: </h1>
                         <ul>Pickup Date: {posts.pickupDate}</ul>
-                        <ul>Pickup Location: {posts.pickupLocation}</ul>
-                        <ul>Dollar Price: $ {posts.dollarPrice}</ul>
-                        <ul>Favor Points: {posts.favorPoints}</ul>
+                        <ul>Name: {posts.composter}</ul>
+                        <ul>Gallons of Compost: {posts.gallonsNeeded} Gallons</ul>
+                        {/* <ul>Favor Points: {posts.favorPoints}</ul> */}
                         <ul>Booked By: {posts.bookings.map((booking) => {
-                            return <p>{booking.userName}</p>
+                            return (
+                            <p>{booking.userName}</p>
+                            )
+                                
+                            
 
                         })}</ul>
 

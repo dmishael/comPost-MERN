@@ -42,7 +42,7 @@ class AddBookingForm extends Component {
                     <div>
                         <input 
                         type = "text"
-                        placeholder="User Name"
+                        placeholder="User Name - Gallons Committed"
                         name="userName"
                         value={this.state.booking.userName}
                         onChange={this.handleChange}

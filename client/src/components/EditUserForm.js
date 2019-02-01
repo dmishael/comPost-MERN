@@ -27,7 +27,7 @@ class EditUserForm extends Component {
         console.log("user", userId)
         console.log(`api/users/${userId}`)
         axios.patch(`/api/users/${userId}`, edit).then((res) => {console.log("smile")
-            this.props.history.push(`/users/${userId}`)
+            this.props.history.push(`/users`)
             console.log("handled it")
 
         })

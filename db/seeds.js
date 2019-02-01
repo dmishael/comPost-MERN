@@ -13,27 +13,21 @@ const book2 = new Booking({
 })
 
 const post1 = new Post({
-    dollarPrice: 10,
-    favorPoints: 5,
-    booked: "Yes",
-    pickupLocation: '799 Virginia Circle NE',
+    gallonsNeeded: 10,
+    composter: '799 Virginia Circle NE',
     pickupDate: "January 26, 2019",
     bookings: [book1, book2]
 })
 
 const post2 = new Post({
-    dollarPrice: 7,
-    favorPoints: 4,
-    booked: "Yes",
-    pickupLocation: '750 Virginia Circle NE',
+    gallonsNeeded: 7,
+    composter: '750 Virginia Circle NE',
     pickupDate: "January 28, 2019",
     bookings: [book1, book2]
 })
 
 const user = new User({
-    amountComposted: 100,
-    routesHauled: 50,
-    availableCredit: 300,
+    totalComposted: [10, 10],
     name: "Daniel",
     address: "799 Virginia Circle NE",
     posts: [post1, post2]

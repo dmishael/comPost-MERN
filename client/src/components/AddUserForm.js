@@ -33,7 +33,7 @@ class UserForm extends Component {
                     <div>
                         <input 
                         type = "text"
-                        placeholder="Name"
+                        placeholder="Composter Name"
                         name="name"
                         value={this.state.user.name}
                         onChange={this.handleChange}

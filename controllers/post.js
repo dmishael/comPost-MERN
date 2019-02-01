@@ -17,7 +17,9 @@ const postController = {
                 console.log('user', user)
                 Post.create(req.body)
                     .then((newPost) => {
+                        console.log(newPost.gallonsNeeded)
                         user.posts.push(newPost)
+                        user.totalComposted.push(newPost.gallonsNeeded)
                         user.save()
                         res.send(newPost)
                     })

@@ -5,7 +5,9 @@ import {Link} from 'react-router-dom';
 class Profile extends Component {
 
     state = {
-        user: {}
+        user: {
+            totalComposted: []
+        }
     }
     
     componentDidMount() {
@@ -22,11 +24,24 @@ class Profile extends Component {
         })
 }
 
+
+    sumCompostAmount = (array) => {
+        let total = 0
+        array.forEach(element => {
+            
+            total = total+element
+        })
+        return total
+        ;
+    }    
+
     render() {
         return (
             <div>
                 <h1>Profile: {this.state.user.name}</h1>
                 <h1>Address: {this.state.user.address}</h1>
+                <h1>Gallons Composted: {this.sumCompostAmount(this.state.user.totalComposted)}</h1>
+                {/* <h1>Hauling Credit: {this.state.user.bookingCredit}</h1> */}
                 {console.log(this.state.user.posts)}
                 {/* <h1>{this.state.user.posts.reduce((a,b) => {
                     return( a + b)

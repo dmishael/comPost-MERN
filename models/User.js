@@ -2,9 +2,12 @@ const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
 const User = new Schema({
-    amountComposted: Number,
-    routesHauled: Number,
-    availableCredit: Number,
+    totalComposted: [
+        {
+            type: Schema.Types.Number,
+            ref: 'Post'
+        }
+    ],
     name: String,
     address: String,
     posts: [

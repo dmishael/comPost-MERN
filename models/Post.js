@@ -2,10 +2,10 @@ const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
 const Post = new Schema({
-    dollarPrice: Number,
-    favorPoints: Number,
-    booked: String,
-    pickupLocation: String,
+    gallonsNeeded: Number,
+    // favorPoints: Number,
+    // booked: String,
+    composter: String,
     pickupDate: String,
     bookings: [
         {
