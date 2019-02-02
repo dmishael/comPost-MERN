@@ -52,8 +52,16 @@ margin-left: 60%;
 const Nav = styled.nav`
 width: 100%;
 background-color: #45616C;
+text-align: right;
 `
-
+const NavLink = styled(Link)`
+text-decoration: none;
+background: #ffec99;
+border-radius: 20px;
+padding: 1%;
+margin: 20px;
+color: black;
+`
 
 class Users extends Component {
 
@@ -87,8 +95,8 @@ class Users extends Component {
             
             <div>
             <Nav>
-                <Link to="/users">Users</Link>
-                <Link to="/userForm">Sign Up</Link>
+                {/* <NavLink to="/users">Users</NavLink> */}
+                <NavLink to="/userForm">Sign Up</NavLink>
               
         </Nav>
             
