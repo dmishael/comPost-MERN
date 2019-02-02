@@ -11,13 +11,12 @@ const postController = {
     },
     create: (req, res) => {
         var userId = req.params.userId
-        console.log(userId)
+        
         User.findById(userId)
             .then((user) => {
-                console.log('user', user)
+                
                 Post.create(req.body)
                     .then((newPost) => {
-                        console.log(newPost.gallonsNeeded)
                         user.posts.push(newPost)
                         user.totalComposted.push(newPost.gallonsNeeded)
                         user.save()
@@ -27,7 +26,6 @@ const postController = {
     },
     show: (req, res) => {
         const postId = req.params.postId
-        console.log(postId)
         Post.findById(postId).populate('bookings').then((post) => {
             res.send(post)
 
@@ -42,7 +40,19 @@ const postController = {
             })
     },
     delete: (req, res) => {
-        Post.findByIdAndDelete(req.params.postId)
+        var userId = req.params.userId
+        console.log("user",userId)
+        // var user = User.findById(userId).then((user)=> {
+        //     return (user)
+        // }).then(
+
+        // console.log(user))
+
+        console.log(userId)
+        User.findById(userId).posts
+        Post.findByIdAndDelete(req.params.postId).then(
+
+        )
             .then(() => {
                 res.send(200)
             })
