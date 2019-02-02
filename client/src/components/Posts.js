@@ -30,6 +30,14 @@ class Posts extends Component {
 
     }
 
+    deleteBooking = (event, bookingId) => {
+        event.preventDefault()
+        axios.delete(`/api/bookings/${bookingId}`).then((res) => {
+            this.getAllPosts()
+        })
+
+    }
+
     addCompostCredit = (event, postId) => {
         event.preventDefault()
         console.log(this.props.match.params.id)
@@ -60,7 +68,7 @@ class Posts extends Component {
                         {/* <ul>Favor Points: {posts.favorPoints}</ul> */}
                         <ul>Booked By: {posts.bookings.map((booking) => {
                             return (
-                            <p>{booking.userName}</p>
+                            <p>{booking.userName} <button onClick={(event) => this.deleteBooking(event, booking._id)}>Delete</button></p>
                             )
                                 
                             
