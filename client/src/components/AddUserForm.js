@@ -1,19 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import styled from 'styled-components'
 
-const Button = styled.a`
-text-decoration: none;
-background: #ffec99;
-text-align: "center";
-display: "inline";
-color: black;
-font-size: 1em;
-margin: 3%;
-padding: 0.25em 1em;
-border: .8px solid black;
-border-radius: 20px;
-`
 
 class UserForm extends Component {
 
@@ -62,7 +49,7 @@ class UserForm extends Component {
                         onChange={this.handleChange}
                         />
                     </div>
-                    <Button>Submit</Button>
+                    <button>Submit</button>
                 
                 </form>
 
