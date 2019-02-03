@@ -5,12 +5,13 @@ Stretch Goal:
 If I had more time I would have added a googlemaps API so individuals could easily get to and drop off their food waste.
 
 
-Link to my Trello board : https://trello.com/b/TKgmEKqR/composte
+Link to my Trello board : https://trello.com/b/TKgmEKqR/compost
 
 Link to my Heroku deployed app: https://lit-woodland-81366.herokuapp.com/
 
 ERD's and Wireframs:
 
 
-![alt text](/Wireframe.JPG "wireframe")
-![alt text](/ERD.JPG "ERD")
+
+![ERD](/ERD.jpg)
+![Wireframe](/Wireframe.jpg)
