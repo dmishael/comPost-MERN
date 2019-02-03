@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const HomeLinks = styled.span`
 position: absolute;
 top: 40%;
-margin-left: 40%;
+margin-left: 45%;
 margin-right: 20%;
 font-weight: bold;
 
@@ -44,18 +44,18 @@ class LandingPage extends Component {
         return (
             <div>
 
-<Content>
+                <Content>
                     <HomeLinks>
-                
-                    <Link to="/users"><Button>Gardens</Button></Link>
-                    <Link to="/userForm"><Button>Register</Button></Link>
+
+                        <Link to="/users"><Button>Gardens</Button></Link>
+    
 
                     </HomeLinks>
-            <Intro>
-                <p>“The greatest threat to our planet is the belief that someone else will save it.”
-– Robert Swan</p>
-            </Intro>
-            </Content>
+                    <Intro>
+                        <p>“The greatest threat to our planet is the belief that someone else will save it.”
+                        – Robert Swan</p>
+                    </Intro>
+                </Content>
             </div>
         );
     }

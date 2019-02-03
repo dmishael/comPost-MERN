@@ -3,13 +3,13 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const UserList = styled.div `
+const UserList = styled.div`
 text-align: left-center;
 margin-left: 33%;
 margin-right: 33%;
 
 `
-const UserBorder = styled.ul `
+const UserBorder = styled.ul`
 border-radius: 20px;
 border: 1.5px solid black;
 padding: 10px 10px 10px 10px;
@@ -77,54 +77,50 @@ class Users extends Component {
 
     getAllUsers = () => {
         axios.get(`api/users`).then((res) => {
-            console.log(res)    
             this.setState({ users: res.data })
-            
+
         })
     }
 
     deleteIdea = (event, userId) => {
-            console.log(userId)
-            event.preventDefault()
-            axios.delete(`/api/users/${userId}`).then((res)=>{
-                this.getAllUsers()
-            })
+        event.preventDefault()
+        axios.delete(`/api/users/${userId}`).then((res) => {
+            this.getAllUsers()
+        })
     }
-    
+
     render() {
 
         return (
-            
-            <div>
-            <Nav>
-                {/* <NavLink to="/users">Users</NavLink> */}
-                <NavLink to="/userForm">Register Your Garden</NavLink>
-              
-        </Nav>
-            
-            <UserList>
-                
-                {this.state.users.map((user, i) => (
-                    <UserBorder key={i}>
-                            
-                        <ul> <List> Name: </List><StyledLink to = {`/users/${user._id}`}>{user.name}</StyledLink></ul>
-                        <ul><List> Address: </List>  {user.address} </ul>
-                        {/* <li>Adress: {user.address}</li>
-                        <li>Gallons Composted: {user.amountComposted}</li>
-                        <li>Routes Hauled: {user.routesHauled}</li>
-                        <li>Available Credit: {user.availableCredit}</li> */}
-                     <Edit> 
-                    <Link to = {`/users/${user._id}/edit`}><Button>Edit</Button></Link>
-                    <Button onClick={(event)=>this.deleteIdea(event, user._id)}>Delete</Button></Edit>
-                   
-                    </UserBorder>
 
-                ))}
-            </UserList>
+            <div>
+                <Nav>
+
+                    <NavLink to="/userForm">Register Your Garden</NavLink>
+                    <NavLink to="/">Home</NavLink>
+
+                </Nav>
+
+                <UserList>
+
+                    {this.state.users.map((user, i) => (
+                        <UserBorder key={i}>
+
+                            <ul> <List> Name: </List><StyledLink to={`/users/${user._id}`}>{user.name}</StyledLink></ul>
+                            <ul><List> Address: </List>  {user.address} </ul>
+
+                            <Edit>
+                                <Link to={`/users/${user._id}/edit`}><Button>Edit</Button></Link>
+                                <Button onClick={(event) => this.deleteIdea(event, user._id)}>Delete</Button></Edit>
+
+                        </UserBorder>
+
+                    ))}
+                </UserList>
             </div>
         )
     }
 }
 
 
-    export default Users;
+export default Users;

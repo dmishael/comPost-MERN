@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -17,7 +17,7 @@ padding: 1%;
 margin: 20px;
 color: black;
 `
-const ProfileBorder = styled.ul `
+const ProfileBorder = styled.ul`
 font-family: Courier New;
 font-size: 12pt;
 border-radius: 20px;
@@ -43,7 +43,7 @@ class Profile extends Component {
             totalComposted: []
         }
     }
-    
+
     componentDidMount() {
         this.getSingleUser()
 
@@ -51,53 +51,48 @@ class Profile extends Component {
 
     getSingleUser = () => {
         const id = this.props.match.params.id
-        console.log(id)
-        axios.get(`/api/users/${id}`).then((res)=>{
-            console.log(res)
-            this.setState({user: res.data})
-        
+
+        axios.get(`/api/users/${id}`).then((res) => {
+
+            this.setState({ user: res.data })
+
         })
-}
+    }
 
 
     sumCompostAmount = (array) => {
         let total = 0
         array.forEach(element => {
-            
-            total = total+element
+
+            total = total + element
         })
         return total
-        ;
-    }    
+            ;
+    }
 
     render() {
         return (
             <div>
                 <Nav>
-                <NavLink to = {`/Posts/${this.props.match.params.id}`}>ComPOST</NavLink>
-                <NavLink to = {`/users`}>Gardens</NavLink>
-                <NavLink to = {`/`}>Home</NavLink>
-              
-        </Nav>
-        <ProfileBorder>
-        
-                <h1><ProfileCategory>Profile: </ProfileCategory>   {this.state.user.name}</h1>
-                <h1><ProfileCategory>Address: </ProfileCategory>   {this.state.user.address}</h1>
-                <h1><ProfileCategory>Gallons Composted: </ProfileCategory>   {this.sumCompostAmount(this.state.user.totalComposted)}</h1>
-        
-                     
-                     </ProfileBorder>
-               
-                
+                    <NavLink to={`/Posts/${this.props.match.params.id}`}>ComPOST</NavLink>
+                    <NavLink to={`/users`}>Gardens</NavLink>
+                    <NavLink to={`/`}>Home</NavLink>
+
+                </Nav>
+                <ProfileBorder>
+
+                    <h1><ProfileCategory>Profile: </ProfileCategory>   {this.state.user.name}</h1>
+                    <h1><ProfileCategory>Address: </ProfileCategory>   {this.state.user.address}</h1>
+                    <h1><ProfileCategory>Gallons Composted: </ProfileCategory>   {this.sumCompostAmount(this.state.user.totalComposted)}</h1>
+
+
+                </ProfileBorder>
+
+
             </div>
 
         );
     }
 }
-// amountComposted: Number,
-// routesHauled: Number,
-// availableCredit: Number,
-// name: String,
-// address: String,
-// posts: [
+
 export default Profile;

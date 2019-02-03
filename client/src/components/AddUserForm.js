@@ -12,7 +12,7 @@ class UserForm extends Component {
     }
 
     handleChange = (event) => {
-        const newUser = {...this.state.user}
+        const newUser = { ...this.state.user }
         newUser[event.target.name] = event.target.value
         this.setState({ user: newUser })
     }
@@ -22,9 +22,9 @@ class UserForm extends Component {
         const input = this.state.user
         axios.post('api/users', input).then((res) => {
             this.props.history.goBack()
-        
+
         })
-        
+
     }
 
     render() {
@@ -32,25 +32,25 @@ class UserForm extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <input 
-                        type = "text"
-                        placeholder="Composter Name"
-                        name="name"
-                        value={this.state.user.name}
-                        onChange={this.handleChange}
+                        <input
+                            type="text"
+                            placeholder="Composter Name"
+                            name="name"
+                            value={this.state.user.name}
+                            onChange={this.handleChange}
                         />
                     </div>
                     <div>
-                        <input 
-                        type = "text"
-                        placeholder="Address"
-                        name="address"
-                        value={this.state.user.address}
-                        onChange={this.handleChange}
+                        <input
+                            type="text"
+                            placeholder="Address"
+                            name="address"
+                            value={this.state.user.address}
+                            onChange={this.handleChange}
                         />
                     </div>
                     <button>Submit</button>
-                
+
                 </form>
 
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import styled from 'styled-components'
 
 
 class EditUserForm extends Component {
@@ -22,15 +21,12 @@ class EditUserForm extends Component {
     }
 
     handleSubmit = (event) => {
-        console.log("starting handle suubmit")
         event.preventDefault()
         const edit = this.state.user
         const userId = this.props.match.params.id
-        console.log("user", userId)
-        console.log(`api/users/${userId}`)
-        axios.patch(`/api/users/${userId}`, edit).then((res) => {console.log("smile")
+        axios.patch(`/api/users/${userId}`, edit).then((res) => {
             this.props.history.push(`/users`)
-            console.log("handled it")
+
 
         })
     }
