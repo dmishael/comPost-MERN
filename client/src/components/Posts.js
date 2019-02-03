@@ -23,9 +23,9 @@ text-align: "center";
 display: "inline";
 color: black;
 font-size: .75em;
-padding: 0.1em 1em;
+padding: 0.1em .3em;
 border: .8px solid black;
-border-radius: 20px;
+border-radius: 10px;
 `
 const Button2 = styled.a`
 text-decoration: none;
@@ -154,7 +154,7 @@ class Posts extends Component {
                         {/* <ul>Favor Points: {posts.favorPoints}</ul> */}
                         <ul><Link to={`/Posts/${posts._id}/Book`}><Button>Sign Up</Button></Link>{posts.bookings.map((booking) => {
                             return (
-                            <p>{booking.userName} <Button onClick={(event) => this.deleteBooking(event, booking._id)}>Delete</Button></p>
+                            <p>{booking.userName} <Button onClick={(event) => this.deleteBooking(event, booking._id)}>X</Button></p>
                             )
                                 
                             
