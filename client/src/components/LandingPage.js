@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
 
-const HomeLinks = styled.a`
+const HomeLinks = styled.span`
 position: absolute;
 top: 40%;
-margin-left: 20%;
+margin-left: 40%;
+margin-right: 20%;
+font-weight: bold;
+
 `
 
 const Button = styled.a`
@@ -29,7 +32,7 @@ const Intro = styled.div`
 position: absolute;
 top: 20%;
 margin-left: 20%;
-margin-right: 20%;
+margin-right: 15%;
 font-weight: bold;
 `
 const Content = styled.div`
@@ -44,7 +47,7 @@ class LandingPage extends Component {
 <Content>
                     <HomeLinks>
                 
-                    <Link to="/users"><Button>Find Local Garden</Button></Link>
+                    <Link to="/users"><Button>Gardens</Button></Link>
                     <Link to="/userForm"><Button>Register</Button></Link>
 
                     </HomeLinks>

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
+font-family: Courier New;
 width: 100%;
 background-color: #45616C;
 text-align: right;
@@ -73,7 +74,9 @@ class Profile extends Component {
         return (
             <div>
                 <Nav>
-                <NavLink to = {`/Posts/${this.props.match.params.id}`}>Let's Compost</NavLink>
+                <NavLink to = {`/Posts/${this.props.match.params.id}`}>ComPOST</NavLink>
+                <NavLink to = {`/users`}>Gardens</NavLink>
+                <NavLink to = {`/`}>Home</NavLink>
               
         </Nav>
         <ProfileBorder>

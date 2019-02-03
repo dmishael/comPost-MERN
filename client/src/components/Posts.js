@@ -22,6 +22,17 @@ background: #ffec99;
 text-align: "center";
 display: "inline";
 color: black;
+font-size: .75em;
+padding: 0.1em 1em;
+border: .8px solid black;
+border-radius: 20px;
+`
+const Button2 = styled.a`
+text-decoration: none;
+background: #ffec99;
+text-align: "center";
+display: "inline";
+color: black;
 font-size: 1em;
 padding: 0.1em 1em;
 border: .8px solid black;
@@ -39,6 +50,7 @@ display: inline-block;
 `
 
 const Nav = styled.nav`
+font-family: Courier New;
 width: 100%;
 background-color: #45616C;
 text-align: right;
@@ -52,6 +64,7 @@ margin: 20px;
 color: black;
 `
 const PostHeader = styled.div`
+font-weight: bold;
 font-family: Courier New;
 text-align: left;
 Padding: 0px;
@@ -134,12 +147,12 @@ class Posts extends Component {
                 <PostList>
                 {this.state.Posts.map((posts, i) =>
                     <PostBorder key={i}>
-                        <h1> <PostHeader>Post </PostHeader></h1>
+                        <h1> <PostHeader>comPOST </PostHeader></h1>
                         <ul><PostCategory>Pickup Date: </PostCategory>  {posts.pickupDate}</ul>
                         <ul><PostCategory>Name: </PostCategory>   {posts.composter}</ul>
                         <ul><PostCategory>Gallons of Compost: </PostCategory>   {posts.gallonsNeeded} Gallons</ul>
                         {/* <ul>Favor Points: {posts.favorPoints}</ul> */}
-                        <ul><Link to={`/Posts/${posts._id}/Book`}><Button>Commit</Button></Link>{posts.bookings.map((booking) => {
+                        <ul><Link to={`/Posts/${posts._id}/Book`}><Button>Sign Up</Button></Link>{posts.bookings.map((booking) => {
                             return (
                             <p>{booking.userName} <Button onClick={(event) => this.deleteBooking(event, booking._id)}>Delete</Button></p>
                             )
@@ -151,7 +164,7 @@ class Posts extends Component {
 
                         <StyledLink>
                             
-                            <Button onClick={(event) => this.deleteIdea(event, posts._id)}>Delete</Button>
+                            <Button2 onClick={(event) => this.deleteIdea(event, posts._id)}>Delete</Button2>
                             {/* <div><button onClick={(event) => this.book(event, posts._id)}>Book</button></div> */}
                         </StyledLink>
                     </PostBorder>

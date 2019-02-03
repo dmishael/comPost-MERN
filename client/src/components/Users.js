@@ -51,6 +51,7 @@ const Edit = styled.div`
 margin-left: 60%;
 `
 const Nav = styled.nav`
+font-family: Courier New;
 width: 100%;
 background-color: #45616C;
 text-align: right;
@@ -97,7 +98,7 @@ class Users extends Component {
             <div>
             <Nav>
                 {/* <NavLink to="/users">Users</NavLink> */}
-                <NavLink to="/userForm">Sign Up</NavLink>
+                <NavLink to="/userForm">Register Your Garden</NavLink>
               
         </Nav>
             
