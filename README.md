@@ -1,5 +1,5 @@
 MVP:
-The Dog Share app allows dog owners to post when going out of town when in need of a dog sitter. A dog owner can also sign up for other appointments. User's can choose to create a profile when signing in order to share they're information with the community. 
+comPost is an app that makes it easy to re-use and recycle food waste in order to reduce methane emissions and slow down climate change. My MVP allows for gardens or individuals who compost to post when they have capacity and are in need of organic waste for feed stock.
 
 Stretch Goal:
 If I had more time I would have added exit tickets to for the owner to rate the sitter and the sitter to rate the dog during an appointment. I also would have added a log for both the user and the sitter to show their upcoming sits and appointments. 
@@ -12,5 +12,5 @@ Link to my Heroku deployed app: https://lit-woodland-81366.herokuapp.com/
 ERD's and Wireframs:
 
 
-![alt text](/Wireframe.JPG "wireframe")
-![alt text](/ERD.JPG "wireframe")
+![alt text](Wireframe.JPG "wireframe")
+![alt text](ERD.JPG "wireframe")
