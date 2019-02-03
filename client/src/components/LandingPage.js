@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
+
+const HomeLinks = styled.a`
+position: absolute;
+top: 40%;
+margin-left: 20%;
+`
+
 const Button = styled.a`
 text-decoration: none;
 background: #ffec99;
@@ -16,18 +23,17 @@ border-radius: 20px;
 left-align: 30%;
 
 `
-const HomeLinks = styled.a`
-position: absolute;
-top: 40%;
-margin-left: 40%;
-margin-right: 40%;
-`
+
 
 const Intro = styled.div`
 position: absolute;
 top: 20%;
-margin-left: 40%;
-margin-right: 40%;
+margin-left: 20%;
+margin-right: 20%;
+font-weight: bold;
+`
+const Content = styled.div`
+font-family: Courier New;
 `
 
 class LandingPage extends Component {
@@ -35,17 +41,18 @@ class LandingPage extends Component {
         return (
             <div>
 
-
+<Content>
                     <HomeLinks>
                 
-                    <Link to="/users"><Button>Users</Button></Link>
-                    <Link to="/userForm"><Button>Sign Up</Button></Link>
+                    <Link to="/users"><Button>Find Local Garden</Button></Link>
+                    <Link to="/userForm"><Button>Register</Button></Link>
 
                     </HomeLinks>
             <Intro>
                 <p>“The greatest threat to our planet is the belief that someone else will save it.”
 – Robert Swan</p>
             </Intro>
+            </Content>
             </div>
         );
     }

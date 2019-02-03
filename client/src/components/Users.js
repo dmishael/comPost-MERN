@@ -13,6 +13,7 @@ const UserBorder = styled.ul `
 border-radius: 20px;
 border: 1.5px solid black;
 padding: 10px 10px 10px 10px;
+font-family: Courier New;
 `
 
 const Button = styled.a`

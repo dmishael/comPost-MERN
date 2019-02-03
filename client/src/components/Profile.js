@@ -16,22 +16,24 @@ padding: 1%;
 margin: 20px;
 color: black;
 `
-const View = styled.div `
-text-align: left-center;
-margin-left: 33%;
-margin-right: 33%;
-
-`
-const Info = styled.ul `
-padding: 10px 10px 10px 10px;
-text-decoration: "none";
-`
-
 const ProfileBorder = styled.ul `
+font-family: Courier New;
+font-size: 12pt;
 border-radius: 20px;
 border: 1.5px solid black;
 padding: 10px 10px 10px 10px;
+text-align: left-center;
+margin-left: 15%;
+margin-right: 15%;
 `
+
+const ProfileCategory = styled.div`
+font-weight: bold;
+color: "black";
+display: inline-block;
+`
+
+
 
 class Profile extends Component {
 
@@ -75,17 +77,12 @@ class Profile extends Component {
               
         </Nav>
         <ProfileBorder>
-            <View>
-                <h1>Profile: <Info>{this.state.user.name}</Info></h1>
-                <h1>Address: {this.state.user.address}</h1>
-                <h1>Gallons Composted: {this.sumCompostAmount(this.state.user.totalComposted)}</h1>
-                {/* <h1>Hauling Credit: {this.state.user.bookingCredit}</h1> */}
-                {console.log(this.state.user.posts)}
-                {/* <h1>{this.state.user.posts.reduce((a,b) => {
-                    return( a + b)
-                })}</h1>
-                     */}
-                     </View>
+        
+                <h1><ProfileCategory>Profile: </ProfileCategory>   {this.state.user.name}</h1>
+                <h1><ProfileCategory>Address: </ProfileCategory>   {this.state.user.address}</h1>
+                <h1><ProfileCategory>Gallons Composted: </ProfileCategory>   {this.sumCompostAmount(this.state.user.totalComposted)}</h1>
+        
+                     
                      </ProfileBorder>
                
                 

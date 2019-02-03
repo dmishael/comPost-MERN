@@ -1,6 +1,74 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const PostList = styled.div `
+text-align: left-center;
+margin-left: 33%;
+margin-right: 33%;
+
+`
+const PostBorder = styled.ul `
+border-radius: 20px;
+border: 1.5px solid black;
+padding: 10px 10px 10px 10px;
+font-family: Courier New;
+`
+
+const Button = styled.a`
+text-decoration: none;
+background: #ffec99;
+text-align: "center";
+display: "inline";
+color: black;
+font-size: 1em;
+padding: 0.1em 1em;
+border: .8px solid black;
+border-radius: 20px;
+`
+const StyledLink = styled.div`
+text-decoration: none;
+text-align: "center";
+color: black;
+font-size: 1em;
+margin: 3%;
+padding: 0.25em 1em;
+border-radius: 20px;
+display: inline-block;
+`
+
+const Nav = styled.nav`
+width: 100%;
+background-color: #45616C;
+text-align: right;
+`
+const NavLink = styled(Link)`
+text-decoration: none;
+background: #ffec99;
+border-radius: 20px;
+padding: 1%;
+margin: 20px;
+color: black;
+`
+const PostHeader = styled.div`
+font-family: Courier New;
+text-align: left;
+Padding: 0px;
+Margin: 0px;
+`
+
+
+const PostCategory = styled.div`
+font-weight: bold;
+color: "black";
+display: inline-block;
+font-size: 20px;
+`
+
+
+
+
 
 class Posts extends Component {
 
@@ -58,32 +126,39 @@ class Posts extends Component {
     render() {
         return (
             <div>
-                <Link to={`/Post/${this.props.match.params.id}`}>Post</Link>
+                <Nav>
+                <NavLink to={`/Post/${this.props.match.params.id}`}>comPOST</NavLink>
+                <NavLink to = {`/users/${this.props.match.params.id}`}>Profile</NavLink>
+                <NavLink to = {`/`}>Home</NavLink>
+                </Nav>
+                <PostList>
                 {this.state.Posts.map((posts, i) =>
-                    <div key={i}>
-                        <h1> Post: </h1>
-                        <ul>Pickup Date: {posts.pickupDate}</ul>
-                        <ul>Name: {posts.composter}</ul>
-                        <ul>Gallons of Compost: {posts.gallonsNeeded} Gallons</ul>
+                    <PostBorder key={i}>
+                        <h1> <PostHeader>Post </PostHeader></h1>
+                        <ul><PostCategory>Pickup Date: </PostCategory>  {posts.pickupDate}</ul>
+                        <ul><PostCategory>Name: </PostCategory>   {posts.composter}</ul>
+                        <ul><PostCategory>Gallons of Compost: </PostCategory>   {posts.gallonsNeeded} Gallons</ul>
                         {/* <ul>Favor Points: {posts.favorPoints}</ul> */}
-                        <ul>Booked By: {posts.bookings.map((booking) => {
+                        <ul><Link to={`/Posts/${posts._id}/Book`}><Button>Commit</Button></Link>{posts.bookings.map((booking) => {
                             return (
-                            <p>{booking.userName} <button onClick={(event) => this.deleteBooking(event, booking._id)}>Delete</button></p>
+                            <p>{booking.userName} <Button onClick={(event) => this.deleteBooking(event, booking._id)}>Delete</Button></p>
                             )
                                 
                             
 
                         })}</ul>
+                        
 
-                        <div>
-                            <Link to={`/Posts/${posts._id}/Book`}>Book!</Link>
-                            <div><button onClick={(event) => this.deleteIdea(event, posts._id)}>Delete</button></div>
+                        <StyledLink>
+                            
+                            <Button onClick={(event) => this.deleteIdea(event, posts._id)}>Delete</Button>
                             {/* <div><button onClick={(event) => this.book(event, posts._id)}>Book</button></div> */}
-                        </div>
-                    </div>
+                        </StyledLink>
+                    </PostBorder>
 
 
                 )}
+                </PostList>
 
 
             </div>
