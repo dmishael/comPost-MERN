@@ -9,19 +9,16 @@ import UserForm from './components/AddUserForm';
 import EditUserForm from './components/EditUserForm';
 import AddBookingForm from './components/AddBookingForm';
 import AddPost from './components/AddPost';
+import LandingPage from './components/LandingPage';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-        {/* <nav>
-                <Link to="/users">Users</Link>
-                <Link to="/userForm">Sign Up</Link>
-              
-        </nav> */}
+       
           <Switch>
-            
+            <Route exact path="/" component={LandingPage}/>  
             <Route exact path="/users" component={Users}/>
             <Route exact path="/userForm" component={UserForm}/>
             <Route exact path="/users/:id/edit" component={EditUserForm}/>
