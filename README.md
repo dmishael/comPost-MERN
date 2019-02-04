@@ -1,8 +1,8 @@
 MVP:
-comPost is an app that makes it easy to re-use and recycle food waste in order to reduce methane emissions and slow down climate change. My MVP allows for gardens or individuals who compost to post when they have capacity and are in need of organic waste for feed stock and allows for individuals to help their favorite local gardens. 
+comPost is a MERN stack app that makes it easy to re-use and recycle food waste, turning it into compost, which reduces methane emissions and slows down climate change. My MVP allows for urban gardens, farms (animal feed) and individuals who compost to post when they have capacity and are in need of organic waste for composting.
 
 Stretch Goal:
-If I had more time I would have added a googlemaps API so individuals could easily get to and drop off their food waste.
+If I had more time I would have added a Google Maps API so individuals could easily navigate to their local urban garden or farms to drop off their compost.
 
 
 Link to my Trello board : https://trello.com/b/TKgmEKqR/compost

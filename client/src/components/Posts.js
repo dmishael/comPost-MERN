@@ -11,8 +11,8 @@ margin-right: 33%;
 `
 const PostBorder = styled.ul`
 border-radius: 20px;
-border: 1.5px solid black;
-padding: 10px 10px 10px 10px;
+border: 1px solid black;
+padding: 0px 5px 5px 5px;
 font-family: Courier New;
 `
 
@@ -23,7 +23,7 @@ text-align: "center";
 display: "inline";
 color: black;
 font-size: .75em;
-padding: 0.1em .3em;
+padding: 0.25em .5em;
 border: .8px solid black;
 border-radius: 10px;
 `

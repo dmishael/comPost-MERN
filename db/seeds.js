@@ -28,8 +28,8 @@ const post2 = new Post({
 
 const user = new User({
     totalComposted: [10, 10],
-    name: "Daniel",
-    address: "799 Virginia Circle NE",
+    name: "Wylde Center",
+    address: "435 Oakview Road",
     posts: [post1, post2]
 })
 

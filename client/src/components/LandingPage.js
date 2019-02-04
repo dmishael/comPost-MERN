@@ -34,6 +34,7 @@ top: 20%;
 margin-left: 20%;
 margin-right: 15%;
 font-weight: bold;
+font-size: 16px;
 `
 const Content = styled.div`
 font-family: Courier New;
