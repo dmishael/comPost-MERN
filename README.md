@@ -9,7 +9,7 @@ Link to my Trello board : https://trello.com/b/TKgmEKqR/compost
 
 Link to my Heroku deployed app: https://vast-castle-70484.herokuapp.com/
 
-ERD's and Wireframs:
+ERD's and Wireframes:
 
 
 
