@@ -53,8 +53,8 @@ class LandingPage extends Component {
 
                     </HomeLinks>
                     <Intro>
-                        <p>“The greatest threat to our planet is the belief that someone else will save it.”
-                        – Robert Swan</p>
+                        <p>“The greatest threat to our planet is the belief that someone else will save it.” </p>
+                        <p>– Robert Swan</p>
                     </Intro>
                 </Content>
             </div>

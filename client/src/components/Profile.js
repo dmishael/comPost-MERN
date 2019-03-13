@@ -114,25 +114,25 @@ class Profile extends Component {
                 </Nav>
                 <ProfileBorder>
 
-                    <h1><ProfileCategory>Profile: </ProfileCategory>   {this.state.user.name}</h1>
-                    <h1><ProfileCategory>Address: </ProfileCategory>   {this.state.user.address}</h1>
+                    <h2><ProfileCategory>Profile: </ProfileCategory>   {this.state.user.name}</h2>
+                    <h2><ProfileCategory>Address: </ProfileCategory>   {this.state.user.address}</h2>
 
 
 
 
                     {/* <h1><ProfileCategory>Gallons Committed: </ProfileCategory>   {this.sumCompostAmount(this.state.user.posts)}</h1> */}
 
-                    <div> <ProfileCategory>Gallons Needed: </ProfileCategory>{this.state.posts.map((post) => {
+                    <h4> <ProfileCategory>Gallons Needed: </ProfileCategory>{this.state.posts.map((post) => {
 
                         return post.gallonsNeeded
                     }).reduce((accumulator, currentValue) => {
 
                         return accumulator + currentValue
-                    }, 0)}
+                    }, 0)} 
 
-                    </div>
+                    </h4>
 
-                    <div> <ProfileCategory>Gallons Committed: </ProfileCategory> {this.state.posts.map((post, i) => {
+                    <h4> <ProfileCategory>Gallons Committed: </ProfileCategory> {this.state.posts.map((post, i) => {
                         console.log("For post #", i);
                         return post.bookings.map(((booking, j) => {
                             console.log(this.state.user.posts)
@@ -154,7 +154,7 @@ class Profile extends Component {
                         console.log("sum all the posts")
                         return accumulator + currentValue
                     }, 0)}
-                    </div>
+                    </h4>
 
 
 

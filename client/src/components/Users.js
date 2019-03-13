@@ -49,6 +49,7 @@ display: inline-block;
 `
 const Edit = styled.div`
 margin-left: 60%;
+display: inline-block;
 `
 const Nav = styled.nav`
 font-family: Courier New;
@@ -109,9 +110,9 @@ class Users extends Component {
                             <ul> <List> Name: </List><StyledLink to={`/users/${user._id}`}>{user.name}</StyledLink></ul>
                             <ul><List> Address: </List>  {user.address} </ul>
 
-                            <Edit>
+                            <List>
                                 <Link to={`/users/${user._id}/edit`}><Button>Edit</Button></Link>
-                                <Button onClick={(event) => this.deleteIdea(event, user._id)}>Delete</Button></Edit>
+                                <Button onClick={(event) => this.deleteIdea(event, user._id)}>Delete</Button></List>
 
                         </UserBorder>
 
