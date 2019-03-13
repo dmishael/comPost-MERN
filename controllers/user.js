@@ -18,7 +18,7 @@ const userController = {
     
     show: (req, res) => {
         const userId = req.params.userId
-        console.log(userId)
+        // console.log(userId)
         User.findById(userId).populate('posts').then((user) => {
             res.send(user)
         })

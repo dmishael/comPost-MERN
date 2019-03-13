@@ -6,27 +6,31 @@ class AddBookingForm extends Component {
 
     state = {
         booking: {
-            userName: ''
+            amountCommitted: ''
         }
     }
 
-    handleChange = (event) => {
+    handleChange = async (event) => {
         const newBooking = { ...this.state.booking }
         console.log("posts here", this.state.booking)
         newBooking[event.target.name] = event.target.value
-        this.setState({ booking: newBooking })
-
+        await this.setState({ booking: newBooking })
+        console.log(this.state.booking)
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault()
         const booking = this.state.booking
         const postId = this.props.match.params.id
-        axios.post(`/api/posts/${postId}`, booking)
-            .then(() => this.props.history.goBack())
-
+        
+        const res = await axios.post(`/api/posts/${postId}`, booking)
+        const data = res.data
+        await this.setState({amountCommitted: data})
+        
+        await this.props.history.goBack()
+        console.log('posts',this.state.booking.amountCommitted)
+       
     }
-
 
 
 
@@ -36,10 +40,10 @@ class AddBookingForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <input
-                            type="text"
-                            placeholder="User Name - Gallons Committed"
-                            name="userName"
-                            value={this.state.booking.userName}
+                            type="number"
+                            placeholder="Gallons Committed"
+                            name="amountCommitted"
+                            value={this.state.booking.amountCommitted}
                             onChange={this.handleChange}
                         />
                     </div>

@@ -9,7 +9,7 @@ const bookingController = {
                 res.send(bookings)
             })
     },
-    create: (req, res) => {
+    create: async (req, res) => {
         const postId = req.params.postId
         console.log("post id",postId)
         Post.findById(postId)
@@ -24,6 +24,9 @@ const bookingController = {
                         res.send(newBooking)
                     })
             })
+        // Post.findById(postId).then((post) => {
+        //     res.send(post)
+        // })
     },
 
     show: (req, res) => {

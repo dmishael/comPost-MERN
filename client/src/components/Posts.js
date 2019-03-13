@@ -99,6 +99,7 @@ class Posts extends Component {
     getAllPosts = () => {
         axios.get(`/api/posts/${this.props.match.params.id}`).then((res) => {
             this.setState({ Posts: res.data })
+            console.log(this.state.Posts)
 
         })
     }
@@ -137,15 +138,16 @@ class Posts extends Component {
                     <NavLink to={`/`}>Home</NavLink>
                 </Nav>
                 <PostList>
-                    {this.state.Posts.map((posts, i) =>
-                        <PostBorder key={i}>
-                            <h1> <PostHeader>comPOST </PostHeader></h1>
+                    {this.state.Posts.map((posts) =>
+                        <PostBorder>
+                            <h1> <PostHeader>comPOST {console.log(posts)}</PostHeader></h1>
                             <ul><PostCategory>Pickup Date: </PostCategory>  {posts.pickupDate}</ul>
                             <ul><PostCategory>Name: </PostCategory>   {posts.composter}</ul>
                             <ul><PostCategory>Gallons of Compost: </PostCategory>   {posts.gallonsNeeded} Gallons</ul>
-                            <ul><Link to={`/Posts/${posts._id}/Book`}><Button>Sign Up</Button></Link>{posts.bookings.map((booking) => {
+                            <ul><Link to={`/Posts/${posts._id}/Book`}><Button>Sign Up</Button></Link>{posts.bookings.map((booking, i) => {
                                 return (
-                                    <p>{booking.userName} <Button onClick={(event) => this.deleteBooking(event, booking._id)}>X</Button></p>
+                                    <p><PostCategory> Amount Committed: </PostCategory> {booking.amountCommitted}
+                                        <Button onClick={(event) => this.deleteBooking(event, booking._id)}>X</Button></p>
                                 )
 
 

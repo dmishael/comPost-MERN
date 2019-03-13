@@ -5,11 +5,11 @@ const Booking = require('../models/Booking')
 const mongoose = require('./connections')
 
 const book1 = new Booking({
-    userName: "Daniel"
+    amountCommitted: 20
 })
 
 const book2 = new Booking({
-    userName: "Joe"
+    amountCommitted: 10
 })
 
 const post1 = new Post({
@@ -42,5 +42,6 @@ User.remove({})
     .then(() => post1.save())
     .then(() => post2.save())
     .then(() => user.save())
+    .then(() => console.log(user))
     .then(() => console.log('Successful Save'))
     .then(() => mongoose.connection.close())

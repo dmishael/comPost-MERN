@@ -39,13 +39,18 @@ display: inline-block;
 class Profile extends Component {
 
     state = {
-        user: {
-            totalComposted: []
-        }
+        user: [],
+        Posts: [],
+        posts: []
+        // gallonsNeeded: Number,
+
+
     }
 
     componentDidMount() {
         this.getSingleUser()
+        this.getUserBookings()
+        // this.sumCompostAmount()
 
     }
 
@@ -55,22 +60,50 @@ class Profile extends Component {
         axios.get(`/api/users/${id}`).then((res) => {
 
             this.setState({ user: res.data })
+            console.log(res.data)
+            console.log(this.state.user.posts)
 
         })
     }
 
 
-    sumCompostAmount = (array) => {
-        let total = 0
-        array.forEach(element => {
+    getUserBookings = () => {
+        const id = this.props.match.params.id
+        console.log(id)
 
-            total = total + element
+        axios.get(`/api/Posts/${id}`).then((res) => {
+
+            console.log(res.data)
+            this.setState({ posts: res.data })
+            console.log(this.state)
+
+
         })
-        return total
-            ;
     }
+
+
+
+    // sumCompostAmount = () => {
+    //     this.state.posts.map((post) => {
+
+    //         return post.gallonsNeeded
+    //     }).reduce((accumulator, currentValue) => {
+
+    //         const gallons = accumulator + currentValue
+    //         this.setState({ gallonsNeeded: gallons })
+    //         console.log(this.state.gallonsNeeded)
+    //     }, 0)
+    // }
+
+
+
+
+
+
 
     render() {
+
+
         return (
             <div>
                 <Nav>
@@ -83,8 +116,49 @@ class Profile extends Component {
 
                     <h1><ProfileCategory>Profile: </ProfileCategory>   {this.state.user.name}</h1>
                     <h1><ProfileCategory>Address: </ProfileCategory>   {this.state.user.address}</h1>
-                    <h1><ProfileCategory>Gallons Composted: </ProfileCategory>   {this.sumCompostAmount(this.state.user.totalComposted)}</h1>
 
+
+
+
+                    {/* <h1><ProfileCategory>Gallons Committed: </ProfileCategory>   {this.sumCompostAmount(this.state.user.posts)}</h1> */}
+
+                    <div> <ProfileCategory>Gallons Needed: </ProfileCategory>{this.state.posts.map((post) => {
+
+                        return post.gallonsNeeded
+                    }).reduce((accumulator, currentValue) => {
+
+                        return accumulator + currentValue
+                    }, 0)}
+
+                    </div>
+
+                    <div> <ProfileCategory>Gallons Committed: </ProfileCategory> {this.state.posts.map((post, i) => {
+                        console.log("For post #", i);
+                        return post.bookings.map(((booking, j) => {
+                            console.log(this.state.user.posts)
+                            console.log(`For booking ${j} in post ${i}`);
+
+                            return (
+                                booking.amountCommitted
+                            )
+                        })).reduce((accumulator, currentValue) => {
+                            console.log("sum all the bookings ")
+                            return accumulator + currentValue
+
+                        }, 0)
+                    }
+
+
+
+                    ).reduce((accumulator, currentValue) => {
+                        console.log("sum all the posts")
+                        return accumulator + currentValue
+                    }, 0)}
+                    </div>
+
+
+
+                    {/* <div> <ProfileCategory>Gallons Needed: </ProfileCategory> { return x -y}</div> */}
 
                 </ProfileBorder>
 
